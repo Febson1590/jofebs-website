@@ -80,19 +80,14 @@ export default function Gallery() {
                 el.style.boxShadow = "none";
               }}
             >
-              <div
-                style={{
-                  width: "100%",
-                  minHeight: i % 3 === 0 ? 250 : 190,
-                  backgroundColor: "#0c1f3f",
-                  backgroundImage: `url('${img.src}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  display: "flex",
-                  alignItems: "flex-end",
-                }}
-              >
-                <div style={{ width: "100%", padding: "28px 12px 10px", background: "linear-gradient(transparent,rgba(5,9,26,0.75))" }}>
+              <div style={{ position: "relative", width: "100%", minHeight: i % 3 === 0 ? 250 : 190, backgroundColor: "#0c1f3f" }}>
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  style={{ width: "100%", height: "100%", minHeight: i % 3 === 0 ? 250 : 190, objectFit: "cover", display: "block" }}
+                />
+                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "28px 12px 10px", background: "linear-gradient(transparent,rgba(5,9,26,0.75))" }}>
                   <span style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "rgba(255,255,255,0.6)" }}>{img.alt}</span>
                 </div>
               </div>

@@ -31,7 +31,7 @@ export default function Footer() {
                 GLOBAL CONCEPT LTD.
               </div>
             </div>
-            <p style={{ fontSize: 14, color: "#8899b0", lineHeight: 1.8, maxWidth: 300, marginBottom: 20 }}>
+            <p style={{ fontSize: 14, color: "#c0d4e8", lineHeight: 1.8, maxWidth: 300, marginBottom: 20 }}>
               We build marine vessels that work hard and last long.
               Based in Effurun, Delta State — serving the Niger Delta and beyond.
             </p>
@@ -45,7 +45,7 @@ export default function Footer() {
                   style={{
                     fontFamily: "'DM Mono', monospace",
                     fontSize: 10,
-                    color: "#8899b0",
+                    color: "#c0d4e8",
                     background: b.color,
                     border: "1px solid #1a2f4e",
                     borderRadius: 20,
@@ -69,9 +69,9 @@ export default function Footer() {
                 <a
                   key={n.label}
                   href={n.href}
-                  style={{ fontSize: 14, color: "#8899b0", transition: "color 0.2s" }}
+                  style={{ fontSize: 14, color: "#c0d4e8", transition: "color 0.2s" }}
                   onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#38bdf8")}
-                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#8899b0")}
+                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#c0d4e8")}
                 >
                   {n.label}
                 </a>
@@ -93,7 +93,7 @@ export default function Footer() {
               ].map((c) => (
                 <div key={c.text} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
                   <span style={{ fontSize: 13, flexShrink: 0 }}>{c.icon}</span>
-                  <span style={{ fontSize: 13, color: "#8899b0", lineHeight: 1.6 }}>{c.text}</span>
+                  <span style={{ fontSize: 13, color: "#c0d4e8", lineHeight: 1.6 }}>{c.text}</span>
                 </div>
               ))}
             </div>
@@ -112,10 +112,10 @@ export default function Footer() {
             gap: 12,
           }}
         >
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, color: "#1e3a5f" }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, color: "#6b8aaa" }}>
             © 2026 Jofebs Global Concept Ltd. All rights reserved.
           </p>
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#1e3a5f" }}>
+          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#6b8aaa" }}>
             Built by{" "}
             <a
               href="https://febson.dev"

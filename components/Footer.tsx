@@ -1,59 +1,46 @@
-"use client";
+import Link from "next/link";
 
 const NAV = [
-  { label: "Home",     href: "#home" },
-  { label: "About",    href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Gallery",  href: "#gallery" },
-  { label: "Contact",  href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
+];
+
+const CONTACT = [
+  { icon: "📞", text: "08055940735" },
+  { icon: "📞", text: "08132666244" },
+  { icon: "📧", text: "jofebsglobal@yahoo.com" },
+  { icon: "📍", text: "Ken Complex, #229, Jakpa Road, Effurun, Delta State" },
 ];
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        background: "#030712",
-        borderTop: "1px solid #1a2f4e",
-        padding: "60px 8% 28px",
-      }}
-    >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        <div
-          style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 48, marginBottom: 48 }}
-          className="footer-grid"
-        >
+    <footer className="bg-[#040e1b] border-t border-white/10 pt-16 pb-8">
+      <div className="container-site">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] mb-12">
           {/* Brand */}
           <div>
-            <div style={{ marginBottom: 16 }}>
-              <div style={{ fontSize: 18, fontWeight: 800, color: "#f0f8ff", letterSpacing: "0.04em" }}>JOFEBS</div>
-              <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 9, color: "#38bdf8", letterSpacing: "0.18em", marginTop: 2 }}>
+            <div className="mb-4">
+              <div className="text-[18px] font-extrabold text-white tracking-wide">JOFEBS</div>
+              <div className="font-mono text-[9px] text-[#60A5FA] tracking-[0.18em] mt-1">
                 GLOBAL CONCEPT LTD.
               </div>
             </div>
-            <p style={{ fontSize: 14, color: "#c0d4e8", lineHeight: 1.8, maxWidth: 300, marginBottom: 20 }}>
-              We build marine vessels that work hard and last long.
-              Based in Effurun, Delta State — serving the Niger Delta and beyond.
+            <p className="text-[14px] text-[#a8bcd6] leading-relaxed max-w-sm mb-5">
+              A Nigerian marine engineering company delivering reliable tugboats,
+              barges, houseboats, dredgers and industrial marine services across
+              the Niger Delta and beyond.
             </p>
-            <div style={{ display: "flex", gap: 8 }}>
-              {[
-                { label: "RC 620442", color: "rgba(56,189,248,0.1)" },
-                { label: "Delta State, NG", color: "rgba(14,165,233,0.08)" },
-              ].map((b) => (
+            <div className="flex flex-wrap gap-2">
+              {["RC 620442", "Delta State, NG"].map((b) => (
                 <span
-                  key={b.label}
-                  style={{
-                    fontFamily: "'DM Mono', monospace",
-                    fontSize: 10,
-                    color: "#c0d4e8",
-                    background: b.color,
-                    border: "1px solid #1a2f4e",
-                    borderRadius: 20,
-                    padding: "3px 10px",
-                    letterSpacing: "0.06em",
-                  }}
+                  key={b}
+                  className="font-mono text-[10px] text-[#a8bcd6] bg-white/5 border border-white/10 rounded-full px-3 py-1 tracking-wider"
                 >
-                  {b.label}
+                  {b}
                 </span>
               ))}
             </div>
@@ -61,75 +48,56 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#38bdf8", letterSpacing: "0.18em", marginBottom: 18 }}>
+            <div className="font-mono text-[10px] text-[#60A5FA] tracking-[0.18em] mb-4">
               QUICK LINKS
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <ul className="flex flex-col gap-3">
               {NAV.map((n) => (
-                <a
-                  key={n.label}
-                  href={n.href}
-                  style={{ fontSize: 14, color: "#c0d4e8", transition: "color 0.2s" }}
-                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#38bdf8")}
-                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#c0d4e8")}
-                >
-                  {n.label}
-                </a>
+                <li key={n.href}>
+                  <Link
+                    href={n.href}
+                    className="text-[14px] text-[#a8bcd6] hover:text-[#60A5FA] transition-colors"
+                  >
+                    {n.label}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <div style={{ fontFamily: "'DM Mono', monospace", fontSize: 10, color: "#38bdf8", letterSpacing: "0.18em", marginBottom: 18 }}>
+            <div className="font-mono text-[10px] text-[#60A5FA] tracking-[0.18em] mb-4">
               CONTACT US
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-              {[
-                { icon: "📞", text: "08055940735" },
-                { icon: "📞", text: "08132666244" },
-                { icon: "📧", text: "jofebsglobal@yahoo.com" },
-                { icon: "📍", text: "Ken Complex, #229, Jakpa Road, Effurun, Delta State" },
-              ].map((c) => (
-                <div key={c.text} style={{ display: "flex", gap: 9, alignItems: "flex-start" }}>
-                  <span style={{ fontSize: 13, flexShrink: 0 }}>{c.icon}</span>
-                  <span style={{ fontSize: 13, color: "#c0d4e8", lineHeight: 1.6 }}>{c.text}</span>
-                </div>
+            <ul className="flex flex-col gap-3">
+              {CONTACT.map((c) => (
+                <li key={c.text} className="flex gap-3 items-start">
+                  <span className="text-[13px] shrink-0">{c.icon}</span>
+                  <span className="text-[13px] text-[#a8bcd6] leading-relaxed">{c.text}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div
-          style={{
-            borderTop: "1px solid #1a2f4e",
-            paddingTop: 22,
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: 12,
-          }}
-        >
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 12, color: "#6b8aaa" }}>
-            © 2026 Jofebs Global Concept Ltd. All rights reserved.
+        <div className="border-t border-white/10 pt-6 flex flex-wrap justify-between items-center gap-3">
+          <p className="font-mono text-[12px] text-[#6b87ad]">
+            © {new Date().getFullYear()} Jofebs Global Concept Ltd. All rights reserved.
           </p>
-          <p style={{ fontFamily: "'DM Mono', monospace", fontSize: 11, color: "#6b8aaa" }}>
+          <p className="font-mono text-[11px] text-[#6b87ad]">
             Built by{" "}
             <a
               href="https://febson.dev"
               target="_blank"
               rel="noreferrer"
-              style={{ color: "#38bdf8", fontWeight: 600 }}
+              className="text-[#60A5FA] font-semibold hover:underline"
             >
               Febson.Dev
             </a>
           </p>
         </div>
       </div>
-
-      <style>{`@media(max-width:768px){ .footer-grid{grid-template-columns:1fr!important;gap:32px!important} }`}</style>
     </footer>
   );
 }

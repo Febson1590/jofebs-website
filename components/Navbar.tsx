@@ -1,176 +1,132 @@
 "use client";
-import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const NAV = [
-  { label: "Home",     href: "#home" },
-  { label: "About",    href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Gallery",  href: "#gallery" },
-  { label: "Contact",  href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Projects", href: "/projects" },
+  { label: "Careers", href: "/careers" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 40);
+    const fn = () => setScrolled(window.scrollY > 30);
+    fn();
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
+
+  // Close mobile menu whenever route changes
+  useEffect(() => { setOpen(false); }, [pathname]);
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
-    <nav
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 200,
-        height: 70,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "0 6%",
-        background: scrolled ? "rgba(5,9,26,0.95)" : "transparent",
-        backdropFilter: scrolled ? "blur(14px)" : "none",
-        borderBottom: scrolled ? "1px solid rgba(56,189,248,0.1)" : "none",
-        transition: "all 0.3s ease",
-      }}
+    <header
+      className={`fixed top-0 left-0 right-0 z-[200] transition-all duration-300 ${
+        scrolled || open
+          ? "bg-[#071528]/95 backdrop-blur-md border-b border-white/10"
+          : "bg-transparent"
+      }`}
     >
-      {/* Text logo */}
-      <a href="#home" style={{ display: "flex", flexDirection: "column", lineHeight: 1.2 }}>
-        <span style={{ fontSize: 18, fontWeight: 800, color: "#fff", letterSpacing: "0.04em" }}>
-          JOFEBS
-        </span>
-        <span style={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: 9,
-          color: "#38bdf8",
-          letterSpacing: "0.18em",
-          fontWeight: 500,
-        }}>
-          GLOBAL CONCEPT LTD.
-        </span>
-      </a>
+      <div className="container-site flex items-center justify-between h-[72px]">
+        {/* Brand */}
+        <Link href="/" className="flex flex-col leading-tight shrink-0">
+          <span className="text-[18px] font-extrabold text-white tracking-wide">
+            JOFEBS
+          </span>
+          <span className="font-mono text-[9px] text-[#60A5FA] tracking-[0.18em] mt-0.5">
+            GLOBAL CONCEPT LTD.
+          </span>
+        </Link>
 
-      {/* Desktop nav */}
-      <div className="nav-links" style={{ display: "flex", gap: 28, alignItems: "center" }}>
-        {NAV.map((n) => (
-          <a
-            key={n.label}
-            href={n.href}
-            style={{
-              fontFamily: "'DM Mono', monospace",
-              fontSize: 12,
-              fontWeight: 500,
-              color: "#8899b0",
-              letterSpacing: "0.04em",
-              transition: "color 0.2s",
-            }}
-            onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#38bdf8")}
-            onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#8899b0")}
-          >
-            {n.label}
-          </a>
-        ))}
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-8">
+          {NAV.map((n) => (
+            <Link
+              key={n.href}
+              href={n.href}
+              className={`font-mono text-[12px] tracking-wider transition-colors ${
+                isActive(n.href)
+                  ? "text-[#60A5FA]"
+                  : "text-[#a8bcd6] hover:text-white"
+              }`}
+            >
+              {n.label}
+            </Link>
+          ))}
+        </nav>
+
+        {/* Desktop CTA */}
+        <Link
+          href="/contact"
+          className="hidden lg:inline-flex items-center justify-center bg-[#3B82F6] hover:bg-[#60A5FA] text-white font-bold text-[13px] px-5 py-2.5 rounded-lg transition-colors"
+        >
+          Get a Quote
+        </Link>
+
+        {/* Mobile burger */}
+        <button
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          className="lg:hidden p-2 -mr-2 text-white"
+        >
+          {open ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+              <line x1="5" y1="5" x2="19" y2="19" />
+              <line x1="19" y1="5" x2="5" y2="19" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+              <line x1="4" y1="7" x2="20" y2="7" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="17" x2="20" y2="17" />
+            </svg>
+          )}
+        </button>
       </div>
-
-      {/* CTA */}
-      <a
-        href="#contact"
-        className="nav-cta"
-        style={{
-          background: "linear-gradient(135deg,#38bdf8,#0ea5e9)",
-          color: "#05091a",
-          fontWeight: 700,
-          fontSize: 13,
-          padding: "9px 22px",
-          borderRadius: 8,
-          transition: "opacity 0.2s, transform 0.2s",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "0.88";
-          (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLElement).style.opacity = "1";
-          (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-        }}
-      >
-        Get a Quote
-      </a>
-
-      {/* Mobile burger */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="burger"
-        style={{ background: "none", border: "none", cursor: "pointer", padding: 4, display: "none" }}
-      >
-        <div style={{ width: 22, height: 2, background: "#ccd6f6", marginBottom: 5, borderRadius: 2 }} />
-        <div style={{ width: 22, height: 2, background: "#ccd6f6", marginBottom: 5, borderRadius: 2 }} />
-        <div style={{ width: 22, height: 2, background: "#ccd6f6", borderRadius: 2 }} />
-      </button>
 
       {/* Mobile menu */}
       {open && (
-        <div
-          style={{
-            position: "absolute",
-            top: 70,
-            left: 0,
-            right: 0,
-            background: "rgba(5,9,26,0.98)",
-            backdropFilter: "blur(16px)",
-            padding: "24px 6%",
-            display: "flex",
-            flexDirection: "column",
-            gap: 20,
-            borderBottom: "1px solid rgba(56,189,248,0.1)",
-          }}
-        >
-          {NAV.map((n) => (
-            <a
-              key={n.label}
-              href={n.href}
+        <div className="lg:hidden bg-[#071528] border-t border-white/10">
+          <nav className="container-site py-6 flex flex-col gap-1">
+            {NAV.map((n) => (
+              <Link
+                key={n.href}
+                href={n.href}
+                onClick={() => setOpen(false)}
+                className={`font-mono text-[14px] tracking-wider py-3 border-b border-white/5 ${
+                  isActive(n.href) ? "text-[#60A5FA]" : "text-white"
+                }`}
+              >
+                {n.label}
+              </Link>
+            ))}
+            <Link
+              href="/contact"
               onClick={() => setOpen(false)}
-              style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: 14,
-                fontWeight: 500,
-                color: "#ccd6f6",
-                letterSpacing: "0.06em",
-              }}
+              className="mt-4 inline-flex items-center justify-center bg-[#3B82F6] text-white font-bold text-[14px] px-5 py-3 rounded-lg"
             >
-              {n.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            style={{
-              background: "linear-gradient(135deg,#38bdf8,#0ea5e9)",
-              color: "#05091a",
-              fontWeight: 700,
-              fontSize: 14,
-              padding: "12px 24px",
-              borderRadius: 8,
-              textAlign: "center",
-            }}
-          >
-            Get a Quote
-          </a>
+              Get a Quote
+            </Link>
+          </nav>
         </div>
       )}
-
-      <style>{`
-        @media(max-width:768px){
-          .nav-links { display: none !important; }
-          .nav-cta   { display: none !important; }
-          .burger    { display: block !important; }
-        }
-      `}</style>
-    </nav>
+    </header>
   );
 }

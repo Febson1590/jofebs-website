@@ -1,0 +1,163 @@
+[
+  {
+    "id": "g-001",
+    "title": "Houseboat on river",
+    "imageUrl": "/images/gallery-1.jpg",
+    "category": "Houseboats",
+    "createdAt": "2025-09-10T10:00:00.000Z"
+  },
+  {
+    "id": "g-002",
+    "title": "Houseboat front view",
+    "imageUrl": "/images/gallery-2.jpg",
+    "category": "Houseboats",
+    "createdAt": "2025-09-10T10:05:00.000Z"
+  },
+  {
+    "id": "g-003",
+    "title": "Crane and tugboat structures",
+    "imageUrl": "/images/gallery-3.jpg",
+    "category": "Tugboats",
+    "createdAt": "2025-09-12T08:00:00.000Z"
+  },
+  {
+    "id": "g-004",
+    "title": "Barge hull construction",
+    "imageUrl": "/images/gallery-4.jpg",
+    "category": "Barges",
+    "createdAt": "2025-09-14T09:30:00.000Z"
+  },
+  {
+    "id": "g-005",
+    "title": "Crane lifting tugboat hull",
+    "imageUrl": "/images/gallery-5.jpg",
+    "category": "Tugboats",
+    "createdAt": "2025-09-15T11:20:00.000Z"
+  },
+  {
+    "id": "g-006",
+    "title": "Vessels under construction",
+    "imageUrl": "/images/gallery-6.jpg",
+    "category": "Field Work",
+    "createdAt": "2025-09-18T07:45:00.000Z"
+  },
+  {
+    "id": "g-007",
+    "title": "Crane extended on yard",
+    "imageUrl": "/images/gallery-7.jpg",
+    "category": "Equipment",
+    "createdAt": "2025-09-20T12:00:00.000Z"
+  },
+  {
+    "id": "g-008",
+    "title": "Workers on barge deck",
+    "imageUrl": "/images/gallery-8.jpg",
+    "category": "Workers",
+    "createdAt": "2025-09-22T13:10:00.000Z"
+  },
+  {
+    "id": "g-009",
+    "title": "Welding sparks on hull",
+    "imageUrl": "/images/gallery-9.jpg",
+    "category": "Field Work",
+    "createdAt": "2025-09-24T09:00:00.000Z"
+  },
+  {
+    "id": "g-010",
+    "title": "Welding close-up",
+    "imageUrl": "/images/gallery-10.jpg",
+    "category": "Field Work",
+    "createdAt": "2025-09-26T15:30:00.000Z"
+  },
+  {
+    "id": "g-011",
+    "title": "Workers at dockyard",
+    "imageUrl": "/images/gallery-11.jpg",
+    "category": "Workers",
+    "createdAt": "2025-09-28T10:00:00.000Z"
+  },
+  {
+    "id": "g-012",
+    "title": "Barge deck work",
+    "imageUrl": "/images/gallery-12.jpg",
+    "category": "Barges",
+    "createdAt": "2025-09-30T14:00:00.000Z"
+  },
+  {
+    "id": "g-013",
+    "title": "Crane and pipes on yard",
+    "imageUrl": "/images/gallery-13.jpg",
+    "category": "Equipment",
+    "createdAt": "2025-10-02T08:15:00.000Z"
+  },
+  {
+    "id": "g-014",
+    "title": "Completed barge on water",
+    "imageUrl": "/images/gallery-14.jpg",
+    "category": "Barges",
+    "createdAt": "2025-10-05T11:45:00.000Z"
+  },
+  {
+    "id": "g-015",
+    "title": "Tugboat hull detail",
+    "imageUrl": "/images/gallery-15.jpg",
+    "category": "Tugboats",
+    "createdAt": "2025-10-07T09:00:00.000Z"
+  },
+  {
+    "id": "g-016",
+    "title": "Barge hull with cranes",
+    "imageUrl": "/images/gallery-16.jpg",
+    "category": "Barges",
+    "createdAt": "2025-10-09T13:30:00.000Z"
+  },
+  {
+    "id": "g-017",
+    "title": "Barge construction wide view",
+    "imageUrl": "/images/gallery-17.jpg",
+    "category": "Barges",
+    "createdAt": "2025-10-11T10:20:00.000Z"
+  },
+  {
+    "id": "g-018",
+    "title": "Workers and tugboats",
+    "imageUrl": "/images/gallery-18.jpg",
+    "category": "Tugboats",
+    "createdAt": "2025-10-13T11:10:00.000Z"
+  },
+  {
+    "id": "g-019",
+    "title": "Sunset over vessel",
+    "imageUrl": "/images/gallery-19.jpg",
+    "category": "Field Work",
+    "createdAt": "2025-10-15T18:00:00.000Z"
+  },
+  {
+    "id": "g-020",
+    "title": "Sunset on water",
+    "imageUrl": "/images/gallery-20.jpg",
+    "category": "Field Work",
+    "createdAt": "2025-10-17T18:30:00.000Z"
+  },
+  {
+    "id": "g-021",
+    "title": "Grove crane in yard",
+    "imageUrl": "/images/gallery-21.jpg",
+    "category": "Equipment",
+    "createdAt": "2025-10-19T09:40:00.000Z"
+  },
+  {
+    "id": "g-022",
+    "title": "Bronze propeller close-up",
+    "imageUrl": "/images/gallery-22.jpg",
+    "category": "Equipment",
+    "createdAt": "2025-10-21T12:00:00.000Z"
+  },
+  {
+    "id": "g-023",
+    "title": "Sunset from vessel deck",
+    "imageUrl": "/images/gallery-23.jpg",
+    "category": "Field Work",
+    "createdAt": "2025-10-23T17:50:00.000Z"
+  }
+]

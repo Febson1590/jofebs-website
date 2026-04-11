@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WhatsApp from "@/components/WhatsApp";
 
 export const metadata: Metadata = {
-  title: "Jofebs Global Concept Ltd | Marine Engineering Nigeria",
+  title: "Jofebs Global Concept Ltd | Marine & Engineering Solutions in Nigeria",
   description:
-    "We build tugboats, barges, houseboats and dredgers in Effurun, Delta State Nigeria. Expert marine engineering and construction for over 20 years.",
+    "Jofebs Global Concept Ltd. delivers professional marine engineering, dredging, equipment leasing and vessel construction services across Nigeria and the Niger Delta.",
   keywords:
-    "marine engineering, barge building, tugboat, houseboat, dredger, Nigeria, Delta State, Effurun",
+    "marine engineering, dredging, tugboat, barge, houseboat, equipment leasing, Nigeria, Delta State, Effurun, Jofebs",
   openGraph: {
     title: "Jofebs Global Concept Ltd",
-    description: "We build world-class marine vessels in Nigeria.",
+    description:
+      "Engineering & marine solutions you can trust — vessel construction, dredging, equipment leasing and engineering support in Nigeria.",
     type: "website",
   },
 };
@@ -27,7 +31,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <WhatsApp />
+      </body>
     </html>
   );
 }

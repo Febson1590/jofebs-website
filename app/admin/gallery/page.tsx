@@ -19,8 +19,9 @@ export default async function AdminGalleryPage() {
           <span className="eyebrow">ADMIN</span>
           <h1 className="h-display mt-5 mb-4">Gallery Manager</h1>
           <p className="lead max-w-2xl">
-            Add new gallery items by image URL and remove outdated ones.
-            Changes are saved to the gallery JSON store.
+            Upload new photos directly from your device or camera and remove
+            outdated ones. Images are stored in Vercel Blob and appear instantly
+            on the Projects page.
           </p>
         </div>
       </section>
